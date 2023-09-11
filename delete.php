@@ -1,0 +1,12 @@
+<?php require 'includes/dbconnect.php';
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
+
+    $query = "DELETE FROM users where id=:id";
+    $query = $pdo->prepare($query);
+    $query->execute(['id'=>$id]);
+
+    header("Location: admin.php");
+?>
